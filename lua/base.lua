@@ -26,3 +26,7 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 vim.cmd.colorscheme "catppuccin"
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
+
+-- Space as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '

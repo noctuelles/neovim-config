@@ -1,7 +1,0 @@
-Nmap('<leader>tg', '<Cmd>Lspsaga term_toggle<CR>', { desc = '[T]erm [T]oggle' })
-Nmap('K', '<Cmd>Lspsaga hover_doc<CR>', { desc = 'Hover Doc' })
-Nmap('gd', '<Cmd>Lspsaga lsp_finder<CR>', { desc = 'GoTo definition' })
-Nmap('gD', '<Cmd>Lspsaga goto_definition<CR>')
-Nmap('gp', '<Cmd>Lspsaga preview_definition<CR>')
-Nmap('gr', '<Cmd>Lspsaga rename<CR>')
-Nmap('<leader>o', '<cmd>Lspsaga outline<CR>')

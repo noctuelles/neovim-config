@@ -1,16 +1,9 @@
-require('mapping.telescope')
-require('mapping.lspsaga')
+require('plugin_maps.telescope')
+require('plugin_maps.lspsaga')
 
 local keymap = vim.keymap
 local silent = { silent = true }
-
-function Nmap(key, cmd, description)
-  keymap.set('n', key, cmd, { desc = description, noremap = true, silent = true })
-end
-
--- Space as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+local utils = require('utils')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -19,15 +12,15 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', silent)
 keymap.set('n', 'x', '"_x')
 
 -- Increment and decrement using + and -
-Nmap('+', '<C-a>', '[+] Increment')
-Nmap('-', '<C-x>', '[-] Decrement')
+utils.nmap('+', '<C-a>', '[+] Increment')
+utils.nmap('-', '<C-x>', '[-] Decrement')
 
 -- Select all
-Nmap('sa', 'gg<S-v>G', '[S]elect [A]ll')
+utils.nmap('sa', 'gg<S-v>G', '[S]elect [A]ll')
 
 -- Split horizontaly and verticaly
-Nmap('sh', ':split<CR><C-w>w','[S]plit [H]orizontally')
-Nmap('sv', ':vsplit<CR><C-w>w', '[S]plit [V]ertically')
+utils.nmap('sh', ':split<CR><C-w>w','[S]plit [H]orizontally')
+utils.nmap('sv', ':vsplit<CR><C-w>w', '[S]plit [V]ertically')
 
 -- Create tab and navigate
 keymap.set('n', 'te', ':tabedit<CR>', { silent = true })
