@@ -1,14 +1,13 @@
-require("plugin_maps.telescope")
-require("plugin_maps.lspsaga")
+require("plugins.telescope")
+require("plugins.lspsaga")
 
 local keymap = vim.keymap
-local silent = { silent = true }
 local utils = require("utils")
 local wk = require("which-key")
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", silent)
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- Disable yaking with x
 keymap.set("n", "x", '"_x')
 
