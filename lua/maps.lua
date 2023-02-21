@@ -1,41 +1,53 @@
-require('plugin_maps.telescope')
-require('plugin_maps.lspsaga')
+require("plugin_maps.telescope")
+require("plugin_maps.lspsaga")
 
 local keymap = vim.keymap
 local silent = { silent = true }
-local utils = require('utils')
+local utils = require("utils")
+local wk = require("which-key")
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', silent)
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", silent)
 -- Disable yaking with x
-keymap.set('n', 'x', '"_x')
+keymap.set("n", "x", '"_x')
 
 -- Increment and decrement using + and -
-utils.nmap('+', '<C-a>', '[+] Increment')
-utils.nmap('-', '<C-x>', '[-] Decrement')
+utils.nmap("+", "<C-a>", "[+] Increment")
+utils.nmap("-", "<C-x>", "[-] Decrement")
 
--- Select all
-utils.nmap('sa', 'gg<S-v>G', '[S]elect [A]ll')
+wk.register({
+	s = {
+		name = "split",
+		h = { "<cmd>split<cr><C-w>w", "[S]plit [H]orizontally", silent = true, noremap = true },
+		v = { "<cmd>vsplit<CR><C-w>w", "[S]plit [V]ertically", silent = true, noremap = true },
+		a = { "gg<S-v>G", "[S]elect [A]ll", silent = true, noremap = true },
+	},
+})
 
--- Split horizontaly and verticaly
-utils.nmap('sh', ':split<CR><C-w>w','[S]plit [H]orizontally')
-utils.nmap('sv', ':vsplit<CR><C-w>w', '[S]plit [V]ertically')
-
--- Create tab and navigate
-keymap.set('n', 'te', ':tabedit<CR>', { silent = true })
-keymap.set('n', 'tn', ':tabn<CR>', { silent = true })
-keymap.set('n', 'tp', ':tabp<CR>', { silent = true })
+wk.register({
+	t = {
+		name = "tabs",
+		e = { "<cmd>tabedit<cr>", "[T]ab [E]dit", silent = true, noremap = true },
+		n = { "<cmd>tabn<cr>", "[T]ab [N]ext", silent = true, noremap = true },
+		p = { "<cmd>tabp<cr>", "[T]ab [P]rev", silent = true, noremap = true },
+	},
+})
 
 -- Navigate panels
-keymap.set('', '<leader><Space>', '<C-w>w')
-keymap.set('', '<leader>h', '<C-w>h')
-keymap.set('', '<leader>j', '<C-w>j')
-keymap.set('', '<leader>k', '<C-w>k')
-keymap.set('', '<leader>l', '<C-w>l')
+wk.register({
+	["<leader>"] = {
+		h = { "<C-w>h", "Left Window", silent = true, noremap = true },
+		j = { "<C-w>j", "Bottom Window", silent = true, noremap = true },
+		k = { "<C-w>k", "Top Window", silent = true, noremap = true },
+		l = { "<C-w>l", "Right Window", silent = true, noremap = true },
+	},
+})
+
+keymap.set("", "<leader><Space>", "<C-w>w")
 
 -- Resize panels
-keymap.set('n', '<leader><left>', '<C-w>>')
-keymap.set('n', '<leader><right>', '<C-w><')
-keymap.set('n', '<leader><up>', '<C-w>+')
-keymap.set('n', '<leader><down>', '<C-w>-')
+keymap.set("n", "<leader><left>", "<C-w>>")
+keymap.set("n", "<leader><right>", "<C-w><")
+keymap.set("n", "<leader><up>", "<C-w>+")
+keymap.set("n", "<leader><down>", "<C-w>-")

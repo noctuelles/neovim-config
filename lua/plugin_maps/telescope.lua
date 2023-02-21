@@ -1,14 +1,23 @@
-local builtin = require('telescope.builtin')
-local utils = require('utils')
+local builtin = require("telescope.builtin")
+local wk = require("which-key")
 
-utils.nmap('<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', '[S]earch [F]iles')
-utils.nmap('<leader>sf', builtin.find_files, '[S]earch [F]iles')
-utils.nmap('<leader>sgf', builtin.git_files, '[S]earch [G]it [F]iles')
-utils.nmap('<leader>sh', builtin.help_tags, '[S]earch [H]elp')
-utils.nmap('<leader>sw', builtin.grep_string, '[S]earch current [W]ord')
-utils.nmap('<leader>sg', builtin.live_grep, '[S]earch by [G]rep')
-utils.nmap('<leader>sd', builtin.diagnostics, '[S]earch [D]iagnostics')
-utils.nmap('<leader>sk', builtin.keymaps, '[S]earch [K]eymaps')
-utils.nmap('<leader>sm', builtin.man_pages, '[S]earch [M]an' )
-utils.nmap('<leader>sm', builtin.man_pages, '[S]earch [M]an' )
-utils.nmap('<leader>?', builtin.oldfiles, '[?] Find recently opened files')
+wk.register({
+	["<leader>"] = {
+		f = {
+			name = "file",
+			b = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", "[F]ile [B]rowser" },
+		},
+		s = {
+			name = "search",
+			["?"] = { builtin.oldfiles, "[?] Find recently opened files", silent = true, noremap = true },
+			f = { builtin.find_files, "[S]earch [F]iles", silent = true, noremap = true },
+			h = { builtin.help_tags, "[S]earch [H]elp", silent = true, noremap = true },
+			b = { builtin.grep_string, "[S]earch current [W]ord", silent = true, noremap = true },
+			g = { builtin.live_grep, "[S]earch by [G]rep", silent = true, noremap = true },
+			gf = { builtin.git_files, "[S]earch [G]it [F]iles", silent = true, noremap = true },
+			d = { builtin.diagnostics, "[S]earch [D]iagnostics", silent = true, noremap = true },
+			k = { builtin.keymaps, "[S]earch [K]eymaps", silent = true, noremap = true },
+			m = { builtin.man_pages, "[S]earch [M]an", silent = true, noremap = true },
+		},
+	},
+})
