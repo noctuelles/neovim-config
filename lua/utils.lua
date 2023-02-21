@@ -1,9 +1,9 @@
 local keymap = vim.keymap
 
-M = { }
+M = {}
 
 function M.nmap(key, cmd, description)
-  keymap.set('n', key, cmd, { desc = description, noremap = true, silent = true })
+	keymap.set("n", key, cmd, { desc = description, noremap = true, silent = true })
 end
 
 return M

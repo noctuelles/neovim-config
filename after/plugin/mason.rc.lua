@@ -8,7 +8,6 @@ local servers = {
 	pyright = {},
 	tsserver = {},
 	emmet_ls = {},
-	prettier = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -74,4 +73,8 @@ mason_lspconfig.setup_handlers({
 			settings = servers[server_name],
 		})
 	end,
+})
+
+require("mason-null-ls").setup({
+	ensure_installed = { "stylua", "prettierd", "eslint" },
 })
