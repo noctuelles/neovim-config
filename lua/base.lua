@@ -5,7 +5,7 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -19,14 +19,17 @@ vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
-vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.wildignore:append({ "*/node_modules/*" })
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
 vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append("space:⋅")
 
 -- Space as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
