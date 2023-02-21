@@ -76,5 +76,6 @@ mason_lspconfig.setup_handlers({
 })
 
 require("mason-null-ls").setup({
-	ensure_installed = { "stylua", "prettierd", "eslint" },
+	ensure_installed = { "stylua", "prettierd", "eslint_d", "clang-format" },
+	automatic_setup = true,
 })

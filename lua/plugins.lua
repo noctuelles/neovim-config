@@ -50,7 +50,6 @@ require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	})
-	use("MunifTanjim/prettier.nvim")
 
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("kyazdani42/nvim-web-devicons")
@@ -69,6 +68,13 @@ require("packer").startup(function(use)
 	-- https://github.com/nvim-telescope/telescope-file-browser.nvim
 	use("nvim-telescope/telescope-file-browser.nvim")
 
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
@@ -86,7 +92,7 @@ end
 -- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
-	command = "source <afile> | silent! LspStop | silent! LspStart | PackerCompile",
+	command = "source plugins.lua | silent! LspStop | silent! LspStart | PackerCompile",
 	group = packer_group,
 	pattern = vim.fn.expand("$MYVIMRC"),
 })
