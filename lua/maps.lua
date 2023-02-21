@@ -1,6 +1,12 @@
+require('mapping.telescope')
+require('mapping.lspsaga')
+
 local keymap = vim.keymap
 local silent = { silent = true }
-local noremap_silent = { noremap = true, silent = true }
+
+function Nmap(key, cmd, description)
+  keymap.set('n', key, cmd, { desc = description, noremap = true, silent = true })
+end
 
 -- Space as the leader key
 vim.g.mapleader = ' '
@@ -13,15 +19,15 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', silent)
 keymap.set('n', 'x', '"_x')
 
 -- Increment and decrement using + and -
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
+Nmap('+', '<C-a>', '[+] Increment')
+Nmap('-', '<C-x>', '[-] Decrement')
 
 -- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
+Nmap('sa', 'gg<S-v>G', '[S]elect [A]ll')
 
 -- Split horizontaly and verticaly
-keymap.set('n', 'sh', ':split<CR><C-w>w', { silent = true })
-keymap.set('n', 'sv', ':vsplit<CR><C-w>w', { silent = true })
+Nmap('sh', ':split<CR><C-w>w','[S]plit [H]orizontally')
+Nmap('sv', ':vsplit<CR><C-w>w', '[S]plit [V]ertically')
 
 -- Create tab and navigate
 keymap.set('n', 'te', ':tabedit<CR>', { silent = true })
@@ -40,11 +46,3 @@ keymap.set('n', '<leader><left>', '<C-w>>')
 keymap.set('n', '<leader><right>', '<C-w><')
 keymap.set('n', '<leader><up>', '<C-w>+')
 keymap.set('n', '<leader><down>', '<C-w>-')
-
--- LSP saga
-
-keymap.set('n', '<leader>tg', '<Cmd>Lspsaga term_toggle<CR>', noremap_silent)
-keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', noremap_silent)
-keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', noremap_silent)
-keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', noremap_silent)
-keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', noremap_silent)
