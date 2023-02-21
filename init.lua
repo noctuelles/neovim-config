@@ -1,4 +1,4 @@
-require("base")
 require("plugins")
+require("base")
 require("highlights")
-require('maps')
+require("maps")
