@@ -1,5 +1,5 @@
-require("plugins.telescope")
-require("plugins.lspsaga")
+require("maps.plugins.telescope")
+require("maps.plugins.lspsaga")
 
 local keymap = vim.keymap
 local utils = require("utils")
