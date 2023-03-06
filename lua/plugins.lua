@@ -76,6 +76,7 @@ require("packer").startup(function(use)
 	})
 
 	use("folke/which-key.nvim")
+	use("42Paris/42header")
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -189,11 +194,6 @@ _G.packer_plugins = {
     path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
-  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
@@ -216,6 +216,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/mnt/nfs/homes/plouvel/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
