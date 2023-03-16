@@ -11,10 +11,10 @@ caca.register({
 			name = "goto",
 			d = { "<Cmd>Lspsaga goto_definition<CR>", "[G]oto [D]efinition", silent = true, noremap = true },
 			p = {
-				name = "preview",
+				name = "peek",
 				d = {
-					"<Cmd>Lspsaga preview_definition<CR>",
-					"[G]oto [P]review [D]efinition",
+					"<Cmd>Lspsaga peek_definition<CR>",
+					"[G]oto [P]eek [D]efinition",
 					silent = true,
 					noremap = true,
 				},

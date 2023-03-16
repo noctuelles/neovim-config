@@ -14,6 +14,8 @@ keymap.set("n", "x", '"_x')
 -- Increment and decrement using + and -
 utils.nmap("+", "<C-a>", "[+] Increment")
 utils.nmap("-", "<C-x>", "[-] Decrement")
+utils.nmap("<leader>yy", '"*yy', "[y] Yank line to system clipboard")
+utils.nmap("<leader>p", '"*p', "[p] Put from system clipboard")
 
 wk.register({
 	s = {
